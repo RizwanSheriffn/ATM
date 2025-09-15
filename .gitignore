@@ -1,0 +1,30 @@
+# Maven
+target/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Compiled files
+*.class
+
+# Log files
+*.log
+
+# Local configuration
+src/main/resources/application.properties
+src/main/resources/application.yml
+
+# Operating System
+.DS_Store
+Thumbs.db
