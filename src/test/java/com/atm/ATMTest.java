@@ -21,29 +21,27 @@ public class ATMTest {
 
     @Test
     public void testCardlessDeposit() {
-        String userId = "USER001";
-        double initialBalance = atm.getBalance(userId, "SAVINGS");
+        double initialBalance = atm.getBalance("USER001", "SAVINGS");
         double depositAmount = 500.0;
         
         atm.processCardlessTransaction("deposit", "SAVINGS", depositAmount, "123456");
         
         assertEquals("Balance should increase after cardless deposit",
             initialBalance + depositAmount, 
-            atm.getBalance(userId, "SAVINGS"),
+            atm.getBalance("USER001", "SAVINGS"),
             0.01);
     }
 
     @Test
     public void testCardlessWithdrawal() {
-        String userId = "USER001";
-        double initialBalance = atm.getBalance(userId, "SAVINGS");
+        double initialBalance = atm.getBalance("USER001", "SAVINGS");
         double withdrawAmount = 200.0;
         
         atm.processCardlessTransaction("withdrawal", "SAVINGS", withdrawAmount, "123456");
         
         assertEquals("Balance should decrease after cardless withdrawal",
             initialBalance - withdrawAmount, 
-            atm.getBalance(userId, "SAVINGS"),
+            atm.getBalance("USER001", "SAVINGS"),
             0.01);
     }
 
@@ -110,7 +108,6 @@ public class ATMTest {
 
     @Test
     public void testTransactionHistory() {
-        String userId = "USER001";
         atm.processCardlessTransaction("deposit", "SAVINGS", 100.0, "123456");
         atm.processCardlessTransaction("withdrawal", "CHECKING", 50.0, "654321");
         
@@ -120,7 +117,6 @@ public class ATMTest {
 
     @Test
     public void testMiniStatement() {
-        String userId = "USER001";
         // Perform 6 transactions
         for (int i = 1; i <= 6; i++) {
             atm.processCardlessTransaction("deposit", "SAVINGS", i * 100.0, "123456");

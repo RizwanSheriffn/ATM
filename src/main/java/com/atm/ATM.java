@@ -1,15 +1,12 @@
 package com.atm;
 
-import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class ATM {
-    private String currentUserId;
+    private final String currentUserId;
     private final Scanner scanner;
     private final NumberFormat currencyFormat;
     private final DatabaseManager dbManager;
